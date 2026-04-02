@@ -1,0 +1,280 @@
+/* 单词练习页面样式 */
+
+.container {
+  padding: 30rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin: 30rpx 0 20rpx;
+}
+
+/* 题型选择 */
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.type-card {
+  background: #fff;
+  border: 4rpx solid #E8E8E8;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  transition: all 0.2s;
+}
+
+.type-card.selected {
+  border-color: #98D8AA;
+  background: #F0FFF4;
+}
+
+.type-card:active {
+  transform: scale(0.98);
+}
+
+.type-icon {
+  font-size: 48rpx;
+}
+
+.type-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+/* 数量选择 */
+.count-grid {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.count-btn {
+  flex: 1;
+  padding: 24rpx;
+  background: #fff;
+  border: 4rpx solid #E8E8E8;
+  border-radius: 16rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.count-btn.selected {
+  border-color: #98D8AA;
+  background: #F0FFF4;
+  color: #27AE60;
+  font-weight: 600;
+}
+
+/* 按钮 */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24rpx 40rpx;
+  border-radius: 50rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #98D8AA, #7BC89C);
+  color: white;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2rpx solid #98D8AA;
+  color: #27AE60;
+}
+
+.btn-large {
+  padding: 32rpx 60rpx;
+  font-size: 34rpx;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* 进度头部 */
+.progress-header {
+  margin-bottom: 30rpx;
+}
+
+.progress-header text {
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+.progress-bar {
+  height: 16rpx;
+  background: #E8E8E8;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #98D8AA, #7BC89C);
+  border-radius: 8rpx;
+  transition: width 0.3s;
+}
+
+/* 题目卡片 */
+.question-card {
+  background: #fff;
+  border-radius: 32rpx;
+  padding: 50rpx 40rpx;
+  text-align: center;
+  margin-bottom: 40rpx;
+  box-shadow: 0 8rpx 32rpx rgba(152, 216, 170, 0.2);
+}
+
+.question-label {
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 20rpx;
+}
+
+.question-text {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.question-text.english-text {
+  color: #27AE60;
+}
+
+.phonetic {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.listen-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.listen-hint {
+  font-size: 28rpx;
+  color: #98D8AA;
+}
+
+.sound-hint {
+  font-size: 24rpx;
+  color: #98D8AA;
+}
+
+/* 选项网格 */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.options-grid.chinese-options {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.option-btn {
+  background: #fff;
+  border: 4rpx solid #E8E8E8;
+  border-radius: 20rpx;
+  padding: 32rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.option-btn:active {
+  transform: scale(0.96);
+}
+
+.option-btn.selected {
+  border-color: #98D8AA;
+  background: #F0FFF4;
+}
+
+.option-btn.correct {
+  border-color: #98D8AA;
+  background: rgba(152, 216, 170, 0.3);
+  color: #2D7A4D;
+}
+
+.option-btn.wrong {
+  border-color: #FF6B6B;
+  background: rgba(255, 107, 107, 0.3);
+  color: #C0392B;
+}
+
+/* 结果卡片 */
+.result-card {
+  background: #fff;
+  border-radius: 24rpx;
+  text-align: center;
+  padding: 60rpx 40rpx;
+  margin-top: 40rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+}
+
+.result-icon {
+  font-size: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.result-score {
+  font-size: 80rpx;
+  font-weight: 700;
+  color: #27AE60;
+  margin-bottom: 20rpx;
+}
+
+.result-text {
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.star {
+  font-size: 60rpx;
+  opacity: 0.3;
+}
+
+.star.active {
+  opacity: 1;
+}
+
+.result-buttons {
+  display: flex;
+  gap: 20rpx;
+}
+
+.result-buttons .btn {
+  flex: 1;
+}

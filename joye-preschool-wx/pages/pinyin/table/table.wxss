@@ -1,0 +1,108 @@
+/* 拼音表 */
+.container {
+  padding: 28rpx;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.section {
+  margin-bottom: 28rpx;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14rpx;
+}
+
+.title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.play-all {
+  font-size: 22rpx;
+  color: #6366f1;
+  background: #eef2ff;
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.grid-small .item {
+  width: calc(20% - 10rpx);
+}
+
+.item {
+  width: calc(16.66% - 10rpx);
+  padding: 16rpx 0;
+  background: #fff;
+  border: 2rpx solid #e2e8f0;
+  border-radius: 14rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.pinyin-initial {
+  color: #0284c7;
+}
+
+.pinyin-final {
+  color: #dc2626;
+}
+
+.tone-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14rpx;
+}
+
+.tone-item {
+  background: #fff;
+  border: 2rpx solid #e2e8f0;
+  border-radius: 16rpx;
+  padding: 18rpx;
+}
+
+.tone-name {
+  font-size: 24rpx;
+  color: #6366f1;
+}
+
+.tone-symbol {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 6rpx 0;
+}
+
+.tone-example {
+  font-size: 24rpx;
+  color: #475569;
+}
+
+.tone-1 { color: #2563eb !important; }
+.tone-2 { color: #16a34a !important; }
+.tone-3 { color: #ea580c !important; }
+.tone-4 { color: #dc2626 !important; }
+
+.tone-badge {
+  margin-top: 8rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 999rpx;
+  background: rgba(15, 23, 42, 0.08);
+  font-size: 18rpx;
+  font-weight: 700;
+}

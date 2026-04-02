@@ -1,0 +1,149 @@
+/* 单词闪卡页面样式 */
+
+.container {
+  padding: 30rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 分类滚动 */
+.category-scroll {
+  white-space: nowrap;
+  margin-bottom: 30rpx;
+}
+
+.category-list {
+  display: inline-flex;
+  gap: 16rpx;
+}
+
+.category-item {
+  display: inline-block;
+  padding: 16rpx 28rpx;
+  background: var(--bg-card);
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  border: 2rpx solid #E8E8E8;
+}
+
+.category-item.active {
+  background: var(--macaron-green);
+  color: white;
+  border-color: var(--macaron-green);
+}
+
+/* 闪卡 */
+.flashcard {
+  perspective: 1000rpx;
+  margin-bottom: 40rpx;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 500rpx;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx;
+  box-sizing: border-box;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.1);
+}
+
+.flashcard-front {
+  background: linear-gradient(135deg, var(--macaron-green), #7BC89C);
+}
+
+.flashcard-back {
+  background: linear-gradient(135deg, var(--macaron-blue), #6BB3D9);
+  transform: rotateY(180deg);
+}
+
+.word {
+  font-size: 72rpx;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16rpx;
+}
+
+.phonetic {
+  font-size: 32rpx;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30rpx;
+}
+
+.sound-btn {
+  font-size: 48rpx;
+  padding: 16rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+.meaning {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 30rpx;
+}
+
+.sentences {
+  width: 100%;
+}
+
+.sentence {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12rpx;
+  text-align: center;
+}
+
+.flip-hint {
+  text-align: center;
+  font-size: 24rpx;
+  color: var(--text-hint);
+  margin-top: 16rpx;
+}
+
+/* 导航按钮 */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.nav-btn {
+  flex: 1;
+  padding: 24rpx;
+  background: var(--bg-card);
+  border: 2rpx solid #E8E8E8;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.nav-btn[disabled] {
+  opacity: 0.5;
+}
+
+.progress-text {
+  font-size: 28rpx;
+  color: var(--text-hint);
+}

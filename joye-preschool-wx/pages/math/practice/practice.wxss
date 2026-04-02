@@ -1,0 +1,217 @@
+/* 数学练习页面样式 */
+
+.container {
+  padding: 30rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 30rpx 0 20rpx;
+}
+
+/* 题型选择 */
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.type-card {
+  background: var(--bg-card);
+  border: 4rpx solid #E8E8E8;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.type-card.selected {
+  border-color: var(--primary-color);
+  background: var(--bg-hover);
+}
+
+.type-card:active {
+  transform: scale(0.96);
+}
+
+.type-icon {
+  width: 54rpx;
+  height: 54rpx;
+  margin: 0 auto 12rpx;
+  display: block;
+}
+
+.type-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* 数量选择 */
+.count-grid {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.count-btn {
+  flex: 1;
+  padding: 24rpx;
+  background: var(--bg-card);
+  border: 4rpx solid #E8E8E8;
+  border-radius: 16rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.count-btn.selected {
+  border-color: var(--primary-color);
+  background: var(--bg-hover);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* 进度头部 */
+.progress-header {
+  margin-bottom: 30rpx;
+}
+
+.progress-header text {
+  font-size: 26rpx;
+  color: var(--text-hint);
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+/* 题目卡片 */
+.question-card {
+  background: var(--bg-card);
+  border-radius: 32rpx;
+  padding: 60rpx 40rpx;
+  text-align: center;
+  margin-bottom: 40rpx;
+  box-shadow: 0 8rpx 32rpx rgba(255, 105, 180, 0.15);
+  position: relative;
+}
+
+.question-text {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.sound-btn {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--macaron-blue);
+  border-radius: 50%;
+}
+
+.sound-btn image {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+/* 选项网格 */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.option-btn {
+  background: var(--bg-card);
+  border: 4rpx solid #E8E8E8;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all 0.2s;
+}
+
+.option-btn:active {
+  transform: scale(0.96);
+}
+
+.option-btn.selected {
+  border-color: var(--primary-color);
+  background: var(--bg-hover);
+}
+
+.option-btn.correct {
+  border-color: var(--success-color);
+  background: rgba(152, 216, 170, 0.3);
+  color: #2D7A4D;
+}
+
+.option-btn.wrong {
+  border-color: var(--error-color);
+  background: rgba(255, 107, 107, 0.3);
+  color: #C0392B;
+}
+
+/* 结果卡片 */
+.result-card {
+  text-align: center;
+  padding: 60rpx 40rpx;
+  margin-top: 40rpx;
+}
+
+.result-icon {
+  font-size: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.result-score {
+  font-size: 80rpx;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20rpx;
+}
+
+.result-text {
+  font-size: 32rpx;
+  color: var(--text-secondary);
+  margin-bottom: 30rpx;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.star {
+  font-size: 60rpx;
+  opacity: 0.3;
+}
+
+.star.active {
+  opacity: 1;
+}
+
+.result-buttons {
+  display: flex;
+  gap: 20rpx;
+}
+
+.result-buttons .btn {
+  flex: 1;
+}

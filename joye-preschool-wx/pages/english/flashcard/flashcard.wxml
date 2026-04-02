@@ -1,0 +1,53 @@
+<!-- 单词闪卡页面 -->
+<view class="container">
+  <!-- 分类选择 -->
+  <scroll-view class="category-scroll" scroll-x>
+    <view class="category-list">
+      <view 
+        class="category-item {{currentCategory === 'all' ? 'active' : ''}}"
+        bindtap="selectCategory"
+        data-category="all"
+      >全部</view>
+      <view 
+        class="category-item {{currentCategory === item.id ? 'active' : ''}}"
+        wx:for="{{categories}}"
+        wx:key="id"
+        bindtap="selectCategory"
+        data-category="{{item.id}}"
+      >{{item.icon}} {{item.name}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 闪卡区域 -->
+  <view class="flashcard" bindtap="toggleCard">
+    <view class="flashcard-inner {{isFlipped ? 'flipped' : ''}}">
+      <!-- 正面：英文 -->
+      <view class="flashcard-front">
+        <view class="word">{{currentWord.word}}</view>
+        <view class="phonetic">{{currentWord.phonetic}}</view>
+        <view class="sound-btn" catchtap="playWord">🔊</view>
+      </view>
+      <!-- 背面：中文 -->
+      <view class="flashcard-back">
+        <view class="meaning">{{currentWord.meaning}}</view>
+        <view class="sentences">
+          <view class="sentence" wx:for="{{currentWord.sentences}}" wx:key="*this">
+            {{item}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="flip-hint">点击卡片翻转</view>
+  </view>
+
+  <!-- 导航按钮 -->
+  <view class="nav-buttons">
+    <button class="nav-btn prev" bindtap="prevWord" disabled="{{currentIndex === 0}}">
+      ◀ 上一个
+    </button>
+    <view class="progress-text">{{currentIndex + 1}} / {{filteredWords.length}}</view>
+    <button class="nav-btn next" bindtap="nextWord" disabled="{{currentIndex >= filteredWords.length - 1}}">
+      下一个 ▶
+    </button>
+  </view>
+</view>

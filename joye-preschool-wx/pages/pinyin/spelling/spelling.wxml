@@ -1,0 +1,66 @@
+<view class="container">
+  <view class="tabs">
+    <view class="tab {{mode === 'two' ? 'active' : ''}}" bindtap="switchMode" data-mode="two">两拼法</view>
+    <view class="tab {{mode === 'three' ? 'active' : ''}}" bindtap="switchMode" data-mode="three">三拼法</view>
+    <view class="tab {{mode === 'tone' ? 'active' : ''}}" bindtap="switchMode" data-mode="tone">四声训练</view>
+  </view>
+
+  <scroll-view wx:if="{{mode !== 'tone'}}" class="group-tabs" scroll-x>
+    <view
+      class="group-tab {{currentGroupIndex === index ? 'active' : ''}}"
+      wx:for="{{groups}}"
+      wx:key="id"
+      bindtap="switchGroup"
+      data-index="{{index}}"
+    >
+      {{item.name}}
+    </view>
+  </scroll-view>
+
+  <view class="spelling-card card {{animateClass}}" wx:if="{{currentExample}}" bindtap="playSpelling">
+    <block wx:if="{{mode !== 'tone'}}">
+      <view class="parts">
+        <text class="pinyin-initial" catchtap="playRawPinyin" data-pinyin="{{currentExample.initial}}">{{currentExample.initial}}</text>
+        <text class="plus">+</text>
+        <text wx:if="{{currentExample.medial}}" class="pinyin-medial" catchtap="playRawPinyin" data-pinyin="{{currentExample.medial}}">{{currentExample.medial}}</text>
+        <text wx:if="{{currentExample.medial}}" class="plus">+</text>
+        <view class="tone-word">
+          <text class="pinyin-final {{currentExample.finalToneClass}}" catchtap="playRawPinyin" data-pinyin="{{currentExample.finalTone || currentExample.final}}">{{currentExample.finalTone || currentExample.final}}</text>
+          <text wx:if="{{currentExample.finalToneNumber}}" class="tone-badge {{currentExample.finalToneClass}}">{{currentExample.finalToneNumber}}</text>
+        </view>
+        <text class="equals">=</text>
+        <view class="tone-word">
+          <text class="result {{currentExample.resultToneClass}}" catchtap="playRawPinyin" data-pinyin="{{currentExample.resultTone || currentExample.result}}">{{currentExample.resultTone || currentExample.result}}</text>
+          <text wx:if="{{currentExample.resultToneNumber}}" class="tone-badge {{currentExample.resultToneClass}}">{{currentExample.resultToneNumber}}</text>
+        </view>
+      </view>
+      <view class="char">{{currentExample.char}}</view>
+      <view class="hint">点击播放拼读发音</view>
+    </block>
+
+    <block wx:else>
+      <view class="tone-base" catchtap="playRawPinyin" data-pinyin="{{currentExample.base}}">{{currentExample.base}}</view>
+      <view class="tone-list">
+        <view
+          class="tone-chip {{item.toneClass}}"
+          wx:for="{{currentExample.tones}}"
+          wx:key="pinyin"
+          catchtap="playTone"
+          data-pinyin="{{item.pinyin}}"
+          data-char="{{item.char}}"
+        >
+          <text>{{item.pinyin}} {{item.char}}</text>
+          <text wx:if="{{item.toneNumber}}" class="tone-badge mini {{item.toneClass}}">{{item.toneNumber}}</text>
+        </view>
+      </view>
+      <view class="tone-play-all" catchtap="playAllTones">按顺序播放四个音调</view>
+      <view class="hint">点击四声词条，自动读拼音与汉字</view>
+    </block>
+  </view>
+
+  <view class="nav-buttons">
+    <button class="btn" bindtap="prev" disabled="{{currentIndex === 0}}">上一个</button>
+    <text class="progress">{{currentIndex + 1}}/{{examples.length}}</text>
+    <button class="btn" bindtap="next" disabled="{{currentIndex >= examples.length - 1}}">下一个</button>
+  </view>
+</view>

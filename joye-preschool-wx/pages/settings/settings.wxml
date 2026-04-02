@@ -1,0 +1,112 @@
+<!-- 设置页面 -->
+<view class="container">
+  <!-- 学习统计 -->
+  <view class="card">
+    <view class="card-title">学习统计</view>
+    <view class="stats-grid">
+      <view class="stat-item">
+        <view class="stat-value">{{progress.totalQuestions}}</view>
+        <view class="stat-label">总做题数</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-value">{{accuracy}}%</view>
+        <view class="stat-label">正确率</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-value">{{progress.streakDays}}</view>
+        <view class="stat-label">连续学习</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 基础设置 -->
+  <view class="card">
+    <view class="card-title">基础设置</view>
+    
+    <view class="list-item">
+      <view class="list-item-left">
+        <image class="list-item-icon" src="/images/icons-flat/sound.png" mode="aspectFit"></image>
+        <text class="list-item-title">音效开关</text>
+      </view>
+      <switch 
+        checked="{{settings.soundEnabled}}" 
+        bindchange="toggleSound"
+        color="#6366F1"
+      />
+    </view>
+
+    <view class="list-item">
+      <view class="list-item-left">
+        <image class="list-item-icon" src="/images/icons-flat/font.png" mode="aspectFit"></image>
+        <text class="list-item-title">字体大小</text>
+      </view>
+      <picker 
+        mode="selector" 
+        range="{{fontSizeOptions}}"
+        range-key="label"
+        value="{{fontSizeIndex}}"
+        bindchange="changeFontSize"
+      >
+        <view class="picker-value">{{fontSizeOptions[fontSizeIndex].label}} ▼</view>
+      </picker>
+    </view>
+
+    <view class="list-item">
+      <view class="list-item-left">
+        <image class="list-item-icon" src="/images/icons-flat/speed.png" mode="aspectFit"></image>
+        <text class="list-item-title">拼音语速</text>
+      </view>
+      <picker 
+        mode="selector" 
+        range="{{speedOptions}}"
+        range-key="label"
+        value="{{speedIndex}}"
+        bindchange="changeSpeed"
+      >
+        <view class="picker-value">{{speedOptions[speedIndex].label}} ▼</view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 数据管理 -->
+  <view class="card">
+    <view class="card-title">数据管理</view>
+    
+    <view class="list-item" bindtap="clearWrongBook">
+      <view class="list-item-left">
+        <image class="list-item-icon" src="/images/icons-flat/clear.png" mode="aspectFit"></image>
+        <view>
+          <text class="list-item-title">清空错题本</text>
+          <text class="list-item-desc">当前有 {{wrongBookCount}} 道错题</text>
+        </view>
+      </view>
+      <text class="arrow">▶</text>
+    </view>
+
+    <view class="list-item" bindtap="resetAllData">
+      <view class="list-item-left">
+        <image class="list-item-icon" src="/images/icons-flat/reset.png" mode="aspectFit"></image>
+        <view>
+          <text class="list-item-title">重置所有数据</text>
+          <text class="list-item-desc">清除所有学习记录</text>
+        </view>
+      </view>
+      <text class="arrow">▶</text>
+    </view>
+  </view>
+
+  <!-- 关于 -->
+  <view class="card">
+    <view class="card-title">关于</view>
+    
+    <view class="list-item" bindtap="showAbout">
+      <view class="list-item-left">
+        <image class="list-item-icon" src="/images/icons-flat/about.png" mode="aspectFit"></image>
+        <text class="list-item-title">关于佳宜幼小衔接</text>
+      </view>
+      <text class="arrow">▶</text>
+    </view>
+  </view>
+
+  <view class="version">版本 3.0.0</view>
+</view>

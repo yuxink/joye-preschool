@@ -1,0 +1,64 @@
+<view class="container">
+  <view wx:if="{{mode === 'select'}}">
+    <view class="hero card">
+      <view class="hero-title">数学闯关</view>
+      <view class="hero-subtitle">每关获得至少 1 颗星即可解锁下一关</view>
+    </view>
+
+    <view class="level-list">
+      <view class="level-card" wx:for="{{levels}}" wx:key="id" bindtap="selectLevel" data-level="{{item}}">
+        <view class="level-head">
+          <view>
+            <view class="level-name">{{item.name}}</view>
+            <view class="level-diff">难度：{{item.difficulty}} · {{item.total}} 题</view>
+          </view>
+          <view class="lock {{item.unlocked ? 'on' : ''}}">{{item.unlocked ? '已解锁' : '未解锁'}}</view>
+        </view>
+        <view class="stars">{{item.stars >= 1 ? '★' : '☆'}} {{item.stars >= 2 ? '★' : '☆'}} {{item.stars >= 3 ? '★' : '☆'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{mode === 'practice'}}">
+    <view class="progress-header">
+      <text>第 {{currentIndex + 1}} / {{questions.length}} 题</text>
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{(currentIndex / questions.length) * 100}}%;"></view>
+      </view>
+    </view>
+
+    <view class="question-card">
+      <view class="question-level">{{currentLevel.name}}</view>
+      <view class="question-text">{{currentQuestion.question}}</view>
+      <view class="sound-btn" bindtap="playQuestion">
+        <image src="/images/icons-flat/sound.png" mode="aspectFit"></image>
+      </view>
+    </view>
+
+    <view class="options-grid">
+      <view
+        class="option-btn {{selectedAnswer === item ? 'selected' : ''}} {{showResult && item === currentQuestion.answer ? 'correct' : ''}} {{showResult && selectedAnswer === item && item !== currentQuestion.answer ? 'wrong' : ''}}"
+        wx:for="{{currentQuestion.options}}"
+        wx:key="*this"
+        bindtap="selectAnswer"
+        data-answer="{{item}}"
+      >{{item}}</view>
+    </view>
+
+    <button wx:if="{{showResult}}" class="btn btn-primary btn-large btn-block" bindtap="nextQuestion">
+      {{currentIndex < questions.length - 1 ? '下一题' : '完成闯关'}}
+    </button>
+  </view>
+
+  <view wx:if="{{mode === 'result'}}" class="card result-card">
+    <view class="result-title">{{currentLevel.name}}完成</view>
+    <view class="result-score">{{correctCount}} / {{questions.length}} ({{accuracy}}%)</view>
+    <view class="result-stars">{{earnedStars >= 1 ? '★' : '☆'}} {{earnedStars >= 2 ? '★' : '☆'}} {{earnedStars >= 3 ? '★' : '☆'}}</view>
+    <view class="result-tip">{{earnedStars > 0 ? '成功过关，继续挑战下一关！' : '再试一次，拿到至少1颗星即可解锁下一关。'}}</view>
+
+    <view class="result-actions">
+      <button class="btn btn-outline" bindtap="backToLevels">返回关卡</button>
+      <button class="btn btn-primary" bindtap="replayLevel">再来一次</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,80 @@
+/* 设置页面样式 */
+
+.container {
+  padding: 30rpx;
+  padding-bottom: 120rpx;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx 0;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: var(--text-hint);
+  margin-top: 8rpx;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx 0;
+  border-bottom: 2rpx solid #F0F0F0;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item-left {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.list-item-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.list-item-title {
+  font-size: 30rpx;
+  color: var(--text-primary);
+}
+
+.list-item-desc {
+  font-size: 24rpx;
+  color: var(--text-hint);
+  display: block;
+  margin-top: 6rpx;
+}
+
+.picker-value {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.arrow {
+  font-size: 24rpx;
+  color: var(--text-hint);
+}
+
+.version {
+  text-align: center;
+  font-size: 24rpx;
+  color: var(--text-hint);
+  margin-top: 60rpx;
+}

@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/math/practice/practice",
+    "pages/math/challenge/challenge",
+    "pages/pinyin/vowels/vowels",
+    "pages/pinyin/initials/initials",
+    "pages/pinyin/spelling/spelling",
+    "pages/pinyin/table/table",
+    "pages/pinyin/practice/practice",
+    "pages/english/flashcard/flashcard",
+    "pages/english/sentences/sentences",
+    "pages/english/practice/practice",
+    "pages/wrongbook/wrongbook",
+    "pages/settings/settings"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#6366F1",
+    "navigationBarTitleText": "佳宜幼小衔接",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F8FAFC"
+  },
+  "tabBar": {
+    "color": "#64748B",
+    "selectedColor": "#6366F1",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/wrongbook/wrongbook",
+        "text": "错题本",
+        "iconPath": "images/tabbar/book.png",
+        "selectedIconPath": "images/tabbar/book-active.png"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "设置",
+        "iconPath": "images/tabbar/settings.png",
+        "selectedIconPath": "images/tabbar/settings-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

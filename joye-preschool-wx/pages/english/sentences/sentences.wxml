@@ -1,0 +1,14 @@
+<view class="container">
+  <scroll-view class="tabs" scroll-x>
+    <view class="tab {{currentCategory === index ? 'active' : ''}}" wx:for="{{patterns}}" wx:key="category" bindtap="switchCategory" data-index="{{index}}">{{item.category}}</view>
+  </scroll-view>
+  <view class="patterns">
+    <view class="pattern-card card" wx:for="{{patterns[currentCategory].patterns}}" wx:key="pattern">
+      <view class="pattern" bindtap="playSentence" data-sentence="{{item.pattern}}">{{item.pattern}} 🔊</view>
+      <view class="meaning">{{item.meaning}}</view>
+      <view class="examples">
+        <view class="example" wx:for="{{item.examples}}" wx:for-item="ex" wx:key="*this" bindtap="playSentence" data-sentence="{{ex}}">{{ex}}</view>
+      </view>
+    </view>
+  </view>
+</view>

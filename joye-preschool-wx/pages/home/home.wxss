@@ -1,0 +1,174 @@
+/* 首页样式 */
+
+.container {
+  padding: 30rpx;
+  padding-bottom: 120rpx;
+}
+
+.welcome-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 36rpx;
+  margin-bottom: 26rpx;
+  border: 2rpx solid #e2e8f0;
+}
+
+.welcome-icon {
+  font-size: 80rpx;
+  margin-right: 30rpx;
+}
+
+.welcome-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8rpx;
+}
+
+.welcome-subtitle {
+  font-size: 26rpx;
+  color: #64748b;
+}
+
+/* 统计卡片 */
+.stats-card {
+  margin-bottom: 28rpx;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 18rpx;
+}
+
+.stat-value {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: var(--text-hint);
+  margin-top: 8rpx;
+}
+
+/* 章节标题 */
+.section-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 30rpx 0 18rpx;
+}
+
+/* 模块网格 */
+.modules-grid {
+  display: flex;
+  gap: 16rpx;
+}
+
+.module-card {
+  flex: 1;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx 16rpx;
+  text-align: center;
+  border: 2rpx solid #e2e8f0;
+}
+
+.module-icon {
+  width: 64rpx;
+  height: 64rpx;
+  margin-bottom: 14rpx;
+}
+
+.module-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8rpx;
+}
+
+.module-desc {
+  font-size: 22rpx;
+  color: var(--text-hint);
+}
+
+/* 快捷功能网格 */
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14rpx;
+}
+
+.quick-item {
+  background: #fff;
+  border-radius: 18rpx;
+  padding: 22rpx 12rpx;
+  text-align: center;
+  border: 2rpx solid #e2e8f0;
+}
+
+.quick-item:active {
+  transform: scale(0.96);
+}
+
+.quick-icon {
+  width: 52rpx;
+  height: 52rpx;
+  margin-bottom: 10rpx;
+}
+
+.quick-text {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+/* 进度项 */
+.progress-item {
+  margin-bottom: 24rpx;
+}
+
+.progress-item:last-child {
+  margin-bottom: 0;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.progress-count {
+  color: var(--text-hint);
+}
+
+.progress-bar {
+  height: 16rpx;
+  background: #e8e8e8;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--macaron-pink), var(--primary-color));
+  border-radius: 8rpx;
+  transition: width 0.3s;
+}
+
+.progress-fill.pinyin {
+  background: #0ea5e9;
+}
+
+.progress-fill.english {
+  background: #10b981;
+}

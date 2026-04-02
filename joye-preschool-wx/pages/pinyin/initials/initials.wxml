@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="grid">
+    <view class="pinyin-card" wx:for="{{initials}}" wx:key="pinyin" bindtap="playInitial" data-pinyin="{{item.pinyin}}">
+      <view class="pinyin pinyin-initial">{{item.pinyin}}</view>
+      <view class="char">{{item.char}}</view>
+      <view class="type">{{item.type}}</view>
+    </view>
+  </view>
+</view>

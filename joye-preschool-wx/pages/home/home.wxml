@@ -1,0 +1,106 @@
+<!-- 首页 -->
+<view class="container">
+  <!-- 欢迎卡片 -->
+  <view class="welcome-card">
+    <view class="welcome-text">
+      <view class="welcome-title">欢迎来到佳宜幼小衔接</view>
+      <view class="welcome-subtitle">每天进步一点点，学习更轻松</view>
+    </view>
+  </view>
+
+  <!-- 学习统计 -->
+  <view class="stats-card card">
+    <view class="stats-row">
+      <view class="stat-item">
+        <view class="stat-value">{{progress.totalQuestions}}</view>
+        <view class="stat-label">总做题</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-value">{{accuracy}}%</view>
+        <view class="stat-label">正确率</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-value">{{progress.streakDays}}</view>
+        <view class="stat-label">连续天数</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 学习模块入口 -->
+  <view class="section-title">学习模块</view>
+  <view class="modules-grid">
+    <!-- 数学乐园 -->
+    <view class="module-card" bindtap="goToMath">
+      <image class="module-icon" src="/images/icons-flat/math.png" mode="aspectFit"></image>
+      <view class="module-name">数学乐园</view>
+      <view class="module-desc">加减法、比大小</view>
+    </view>
+
+    <!-- 拼音天地 -->
+    <view class="module-card" bindtap="goToPinyin">
+      <image class="module-icon" src="/images/icons-flat/pinyin.png" mode="aspectFit"></image>
+      <view class="module-name">拼音天地</view>
+      <view class="module-desc">声母韵母、拼读</view>
+    </view>
+
+    <!-- 英语启蒙 -->
+    <view class="module-card" bindtap="goToEnglish">
+      <image class="module-icon" src="/images/icons-flat/english.png" mode="aspectFit"></image>
+      <view class="module-name">英语启蒙</view>
+      <view class="module-desc">单词、句型</view>
+    </view>
+  </view>
+
+  <!-- 快捷功能 -->
+  <view class="section-title">快捷功能</view>
+  <view class="quick-grid">
+    <view class="quick-item" bindtap="goToChallenge">
+      <image class="quick-icon" src="/images/icons-flat/challenge.png" mode="aspectFit"></image>
+      <view class="quick-text">闯关模式</view>
+    </view>
+    <view class="quick-item" bindtap="goToWrongBook">
+      <image class="quick-icon" src="/images/icons-flat/wrongbook.png" mode="aspectFit"></image>
+      <view class="quick-text">错题本</view>
+    </view>
+    <view class="quick-item" bindtap="goToPinyinTable">
+      <image class="quick-icon" src="/images/icons-flat/table.png" mode="aspectFit"></image>
+      <view class="quick-text">拼音表</view>
+    </view>
+    <view class="quick-item" bindtap="goToFlashcard">
+      <image class="quick-icon" src="/images/icons-flat/flashcard.png" mode="aspectFit"></image>
+      <view class="quick-text">单词卡</view>
+    </view>
+  </view>
+
+  <!-- 各科进度 -->
+  <view class="section-title">学习进度</view>
+  <view class="card">
+    <view class="progress-item">
+      <view class="progress-label">
+        <text>数学练习</text>
+        <text class="progress-count">{{progress.mathProgress.totalQuestions}}题 · {{mathProgressPercent}}%</text>
+      </view>
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{mathProgressPercent}}%;"></view>
+      </view>
+    </view>
+    <view class="progress-item">
+      <view class="progress-label">
+        <text>拼音练习</text>
+        <text class="progress-count">{{progress.pinyinProgress.totalQuestions}}题 · {{pinyinProgressPercent}}%</text>
+      </view>
+      <view class="progress-bar">
+        <view class="progress-fill pinyin" style="width: {{pinyinProgressPercent}}%;"></view>
+      </view>
+    </view>
+    <view class="progress-item">
+      <view class="progress-label">
+        <text>英语练习</text>
+        <text class="progress-count">{{progress.englishProgress.totalQuestions}}题 · {{englishProgressPercent}}%</text>
+      </view>
+      <view class="progress-bar">
+        <view class="progress-fill english" style="width: {{englishProgressPercent}}%;"></view>
+      </view>
+    </view>
+  </view>
+</view>

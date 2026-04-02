@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="tabs">
+    <view class="tab {{currentTab === index ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="*this" bindtap="switchTab" data-index="{{index}}">{{item}}</view>
+  </view>
+  <view class="grid">
+    <view class="pinyin-card" wx:for="{{vowels}}" wx:key="pinyin" bindtap="playVowel" data-pinyin="{{item.pinyin}}">
+      <view class="pinyin pinyin-final">{{item.pinyin}}</view>
+      <view class="char">{{item.char}}</view>
+    </view>
+  </view>
+</view>

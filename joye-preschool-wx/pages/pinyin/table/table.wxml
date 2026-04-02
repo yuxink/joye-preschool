@@ -1,0 +1,80 @@
+<scroll-view class="container" scroll-y>
+  <view class="section">
+    <view class="title-row">
+      <view class="title">声母</view>
+      <view class="play-all" bindtap="autoPlaySection" data-section="initials">自动播放</view>
+    </view>
+    <view class="grid">
+      <view class="item pinyin-initial" wx:for="{{initials}}" wx:key="pinyin" bindtap="play" data-pinyin="{{item.pinyin}}">{{item.pinyin}}</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="title-row">
+      <view class="title">单韵母</view>
+      <view class="play-all" bindtap="autoPlaySection" data-section="singleVowels">自动播放</view>
+    </view>
+    <view class="grid">
+      <view class="item pinyin-final" wx:for="{{singleVowels}}" wx:key="pinyin" bindtap="play" data-pinyin="{{item.pinyin}}">{{item.pinyin}}</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="title-row">
+      <view class="title">特殊韵母</view>
+      <view class="play-all" bindtap="autoPlaySection" data-section="specialVowels">自动播放</view>
+    </view>
+    <view class="grid grid-small">
+      <view class="item pinyin-final" wx:for="{{specialVowels}}" wx:key="pinyin" bindtap="play" data-pinyin="{{item.pinyin}}">{{item.pinyin}}</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="title-row">
+      <view class="title">复韵母</view>
+      <view class="play-all" bindtap="autoPlaySection" data-section="compoundVowels">自动播放</view>
+    </view>
+    <view class="grid grid-small">
+      <view class="item pinyin-final" wx:for="{{compoundVowels}}" wx:key="pinyin" bindtap="play" data-pinyin="{{item.pinyin}}">{{item.pinyin}}</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="title-row">
+      <view class="title">前鼻韵母</view>
+      <view class="play-all" bindtap="autoPlaySection" data-section="frontNasalVowels">自动播放</view>
+    </view>
+    <view class="grid grid-small">
+      <view class="item pinyin-final" wx:for="{{frontNasalVowels}}" wx:key="pinyin" bindtap="play" data-pinyin="{{item.pinyin}}">{{item.pinyin}}</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="title-row">
+      <view class="title">后鼻韵母</view>
+      <view class="play-all" bindtap="autoPlaySection" data-section="backNasalVowels">自动播放</view>
+    </view>
+    <view class="grid grid-small">
+      <view class="item pinyin-final" wx:for="{{backNasalVowels}}" wx:key="pinyin" bindtap="play" data-pinyin="{{item.pinyin}}">{{item.pinyin}}</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="title">整体认读音节</view>
+    <view class="grid grid-small">
+      <view class="item" wx:for="{{wholeSyllables}}" wx:key="pinyin" bindtap="play" data-pinyin="{{item.pinyin}}">{{item.pinyin}}</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="title">四个声调（点击发音）</view>
+    <view class="tone-grid">
+      <view class="tone-item" wx:for="{{tones}}" wx:key="tone" bindtap="playTone" data-example="{{item.example}}">
+        <view class="tone-name">{{item.name}}</view>
+        <view class="tone-symbol {{item.toneClass}}">{{item.symbol}}</view>
+        <view class="tone-example {{item.toneClass}}">{{item.example}}</view>
+        <view class="tone-badge {{item.toneClass}}">{{item.tone}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

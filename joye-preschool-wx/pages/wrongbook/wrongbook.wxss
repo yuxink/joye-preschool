@@ -1,0 +1,121 @@
+/* 错题本页面样式 */
+
+.container {
+  padding: 30rpx;
+  padding-bottom: 200rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 150rpx 40rpx;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: var(--text-primary);
+  margin-bottom: 12rpx;
+}
+
+.empty-hint {
+  font-size: 26rpx;
+  color: var(--text-hint);
+}
+
+.header {
+  margin-bottom: 20rpx;
+}
+
+.count-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.count {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: #64748b;
+}
+
+.clear-btn {
+  font-size: 24rpx;
+  color: #ef4444;
+  background: #fff1f2;
+  border: 2rpx solid #fecdd3;
+}
+
+.wrong-list {
+  margin-bottom: 40rpx;
+}
+
+.wrong-item {
+  margin-bottom: 18rpx;
+}
+
+.wrong-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.type-tag {
+  color: #4338ca;
+  background: #e0e7ff;
+}
+
+.added-time {
+  font-size: 22rpx;
+  color: #94a3b8;
+}
+
+.wrong-question {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12rpx;
+  line-height: 1.5;
+}
+
+.wrong-answer {
+  font-size: 28rpx;
+  margin-bottom: 16rpx;
+}
+
+.wrong-answer .label {
+  color: var(--text-hint);
+}
+
+.wrong-answer .answer {
+  color: #059669;
+  font-weight: 700;
+}
+
+.wrong-type {
+  margin-bottom: 16rpx;
+}
+
+.wrong-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  font-size: 24rpx;
+  color: #475569;
+  background: #f8fafc;
+  border: 2rpx solid #cbd5e1;
+}

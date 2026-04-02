@@ -1,0 +1,41 @@
+<!-- 错题本页面 -->
+<view class="container">
+  <!-- 空状态 -->
+  <view wx:if="{{wrongBook.length === 0}}" class="empty-state">
+    <image class="empty-icon" src="/images/icons-flat/book.png" mode="aspectFit"></image>
+    <view class="empty-text">还没有错题哦</view>
+    <view class="empty-hint">继续加油，保持全对！</view>
+  </view>
+
+  <!-- 错题列表 -->
+  <view wx:else>
+    <view class="header card">
+      <view>
+        <view class="count-title">错题复盘</view>
+        <text class="count">共 {{wrongBook.length}} 道错题</text>
+      </view>
+      <button class="clear-btn" bindtap="clearAll" size="mini">清空</button>
+    </view>
+
+    <view class="wrong-list">
+      <view class="wrong-item card" wx:for="{{wrongBook}}" wx:key="question">
+        <view class="wrong-head">
+          <text class="tag type-tag">{{item.typeName}}</text>
+          <text class="added-time">{{item.addedTimeText}}</text>
+        </view>
+        <view class="wrong-question">{{item.question}}</view>
+        <view class="wrong-answer">
+          <text class="label">正确答案：</text>
+          <text class="answer">{{item.answer}}</text>
+        </view>
+        <view class="wrong-actions">
+          <button class="action-btn" bindtap="removeItem" data-question="{{item.question}}" size="mini">移除</button>
+        </view>
+      </view>
+    </view>
+
+    <button class="btn btn-primary btn-large btn-block" bindtap="startReview">
+      开始复习
+    </button>
+  </view>
+</view>

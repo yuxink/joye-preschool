@@ -1,0 +1,92 @@
+<!-- 拼音练习页面 -->
+<view class="container">
+  <!-- 选择模式 -->
+  <view wx:if="{{mode === 'select'}}">
+    <view class="section-title">选择题型</view>
+    <view class="type-grid">
+      <view 
+        class="type-card {{selectedType === item.id ? 'selected' : ''}}" 
+        wx:for="{{questionTypes}}" 
+        wx:key="id"
+        bindtap="selectType"
+        data-type="{{item.id}}"
+      >
+        <view class="type-icon">{{item.icon}}</view>
+        <view class="type-name">{{item.name}}</view>
+      </view>
+    </view>
+
+    <view class="section-title">题目数量</view>
+    <view class="count-grid">
+      <view 
+        class="count-btn {{questionCount === item ? 'selected' : ''}}"
+        wx:for="{{countOptions}}"
+        wx:key="*this"
+        bindtap="selectCount"
+        data-count="{{item}}"
+      >{{item}}题</view>
+    </view>
+
+    <button class="btn btn-primary btn-large btn-block" bindtap="startPractice">
+      开始练习
+    </button>
+  </view>
+
+  <!-- 练习模式 -->
+  <view wx:if="{{mode === 'practice'}}">
+    <!-- 进度条 -->
+    <view class="progress-header">
+      <text>第 {{currentIndex + 1}} / {{questions.length}} 题</text>
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{(currentIndex / questions.length) * 100}}%;"></view>
+      </view>
+    </view>
+
+    <!-- 题目卡片 -->
+    <view class="question-card" bindtap="playQuestion">
+      <view class="question-label">{{currentQuestion.type === 'pinyinToChar' ? '请选择拼音对应的汉字' : '请选择汉字对应的拼音'}}</view>
+      <view class="question-text {{currentQuestion.type === 'pinyinToChar' ? 'pinyin-text' : ''}}">{{currentQuestion.question}}</view>
+      <view class="sound-hint">🔊 点击播放发音</view>
+    </view>
+
+    <!-- 选项 -->
+    <view class="options-grid">
+      <view 
+        class="option-btn {{selectedAnswer === item ? 'selected' : ''}} {{showResult && item === currentQuestion.answer ? 'correct' : ''}} {{showResult && selectedAnswer === item && item !== currentQuestion.answer ? 'wrong' : ''}}"
+        wx:for="{{currentQuestion.options}}"
+        wx:key="*this"
+        bindtap="selectAnswer"
+        data-answer="{{item}}"
+      >{{item}}</view>
+    </view>
+
+    <!-- 下一题按钮 -->
+    <button 
+      wx:if="{{showResult}}"
+      class="btn btn-primary btn-large btn-block"
+      bindtap="nextQuestion"
+    >
+      {{currentIndex < questions.length - 1 ? '下一题' : '查看结果'}}
+    </button>
+  </view>
+
+  <!-- 结果模式 -->
+  <view wx:if="{{mode === 'result'}}" class="result-card card">
+    <view class="result-icon">{{correctCount >= questions.length * 0.8 ? '🎉' : correctCount >= questions.length * 0.6 ? '👍' : '💪'}}</view>
+    <view class="result-score">{{correctCount}} / {{questions.length}}</view>
+    <view class="result-text">
+      {{correctCount >= questions.length * 0.8 ? '太棒了！拼音学得很好！' : correctCount >= questions.length * 0.6 ? '不错哦！继续加油！' : '多练习，你会更棒！'}}
+    </view>
+    
+    <view class="stars">
+      <text class="star {{correctCount >= questions.length * 0.4 ? 'active' : ''}}">⭐</text>
+      <text class="star {{correctCount >= questions.length * 0.7 ? 'active' : ''}}">⭐</text>
+      <text class="star {{correctCount >= questions.length * 0.9 ? 'active' : ''}}">⭐</text>
+    </view>
+
+    <view class="result-buttons">
+      <button class="btn btn-outline" bindtap="backToSelect">重新选择</button>
+      <button class="btn btn-primary" bindtap="restartPractice">再练一次</button>
+    </view>
+  </view>
+</view>
