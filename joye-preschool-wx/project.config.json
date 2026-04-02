@@ -2,7 +2,7 @@
   "miniprogramRoot": "./",
   "projectname": "joye-preschool",
   "description": "佳宜幼小衔接 - 综合启蒙学习小程序",
-  "appid": "wx0b92eb0729e93dc6",
+  "appid": "appid",
   "setting": {
     "urlCheck": true,
     "es6": true,
